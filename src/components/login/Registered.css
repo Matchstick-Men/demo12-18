@@ -1,0 +1,40 @@
+.Registered {
+  background-color: #1b1f25;
+  width: 100%;
+  height: 100%;
+  margin: auto;
+}
+.Registered .Registered_title {
+  width: 100%;
+  height: 6.25rem;
+  line-height: 6.25rem;
+  background-color: #181919;
+}
+.Registered .Registered_title h3 {
+  color: #fff;
+  font-size: 30px;
+  font-weight: 400;
+  margin-left: 3.125rem;
+}
+.Registered .Registered_bgc {
+  width: 800px;
+  height: 300px;
+  padding: 0.625rem 0rem;
+  background-color: #2e3a48;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+.Registered .Registered_bgc .Registered_h3 {
+  color: #fff;
+}
+.Registered .Registered_bgc .Registered-username {
+  width: 50%;
+  margin: 10px;
+  padding: 0.625rem;
+}
+.Registered .Registered_bgc .Registered_button {
+  width: 50%;
+}
