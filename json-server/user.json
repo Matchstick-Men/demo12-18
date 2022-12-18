@@ -22,16 +22,42 @@
       "password": "003",
       "role": "user",
       "id": 3
+    },
+    {
+      "name": "004",
+      "password": "004",
+      "role": "adminuser",
+      "id": 4
+    },
+    {
+      "name": "005",
+      "password": "005",
+      "role": "adminuser",
+      "id": 5
+    },
+    {
+      "name": "006",
+      "password": "006",
+      "role": "user",
+      "id": 6
     }
   ],
   "goods": [
     {
-      "SY": "SY100107",
-      "name": "慢咽舒宁咽炎片",
-      "price": "18.8",
-      "merchants": "阿里健康大药房",
-      "category": "西药",
-      "id": 1007
+      "SY": "SY100102",
+      "name": "丽珠得乐",
+      "price": 22.44,
+      "merchants": "怡心大药房",
+      "category": "儿童药",
+      "id": 2
+    },
+    {
+      "SY": "1001",
+      "name": "11",
+      "price": "11",
+      "merchants": "11",
+      "category": "11",
+      "id": 3
     },
     {
       "SY": "SY100101",
@@ -39,7 +65,7 @@
       "price": 37.55,
       "merchants": "老百姓大药房",
       "category": "感冒药",
-      "id": 1008
+      "id": 4
     },
     {
       "SY": "SY100102",
@@ -47,7 +73,15 @@
       "price": 22.44,
       "merchants": "怡心大药房",
       "category": "儿童药",
-      "id": 1009
+      "id": 5
+    },
+    {
+      "SY": "SY100103",
+      "name": "三九胃泰",
+      "price": 33.45,
+      "merchants": "怡心大药房",
+      "category": "胃药",
+      "id": 6
     },
     {
       "SY": "SY100104",
@@ -55,7 +89,7 @@
       "price": 346.77,
       "merchants": "怡心大药房",
       "category": "西药",
-      "id": 1011
+      "id": 7
     },
     {
       "SY": "SY100105",
@@ -63,63 +97,7 @@
       "price": 22.95,
       "merchants": "老百姓大药房",
       "category": "中成药",
-      "id": 1012
-    },
-    {
-      "SY": "SY100103",
-      "name": "三九胃泰",
-      "price": 33.45,
-      "merchants": "怡心大药房",
-      "category": "胃药",
-      "id": 1013
-    },
-    {
-      "SY": "SY100103",
-      "name": "三九胃泰",
-      "price": 33.45,
-      "merchants": "怡心大药房",
-      "category": "胃药",
-      "id": 1014
-    },
-    {
-      "SY": "SY100101",
-      "name": "莲花清瘟",
-      "price": 37.55,
-      "merchants": "老百姓大药房",
-      "category": "感冒药",
-      "id": 1015
-    },
-    {
-      "SY": "SY100102",
-      "name": "丽珠得乐",
-      "price": 22.44,
-      "merchants": "怡心大药房",
-      "category": "儿童药",
-      "id": 1016
-    },
-    {
-      "SY": "SY100103",
-      "name": "三九胃泰",
-      "price": 33.45,
-      "merchants": "怡心大药房",
-      "category": "胃药",
-      "id": 1017
-    },
-    {
-      "SY": "SY100104",
-      "name": "金花液体钙",
-      "price": 346.77,
-      "merchants": "怡心大药房",
-      "category": "西药",
-      "id": 1018
-    },
-    {
-      "SY": "SY100105",
-      "name": "生脉饮",
-      "price": 22.95,
-      "merchants": "老百姓大药房",
-      "category": "中成药",
-      "id": 1019
+      "id": 8
     },
     {
       "SY": "SY100106",
@@ -127,15 +105,15 @@
       "price": 43.56,
       "merchants": "老百姓大药房",
       "category": "中成药",
-      "id": 1020
+      "id": 9
     },
     {
-      "SY": "SY100104",
-      "name": "金花液体钙",
-      "price": 346.77,
+      "SY": "SY100103",
+      "name": "三九胃泰",
+      "price": 33.45,
       "merchants": "怡心大药房",
-      "category": "西药",
-      "id": 1021
+      "category": "胃药",
+      "id": 10
     }
   ]
 }

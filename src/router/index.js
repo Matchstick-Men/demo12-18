@@ -1,8 +1,8 @@
 import { Navigate, Route, Routes } from "react-router-dom";
-import Auth from "../../auth/Auth";
-import { Home } from "../../components/index/Home";
-import { Login } from "../../components/login/Login"
-import { Registered } from "../../components/Registered/Registered";
+import Auth from "../auth/Auth";
+import { Home } from "../components/index/Home";
+import { Login } from "../components/login/Login"
+import { Registered } from "../components/Registered/Registered";
 const routes = [
     {
         name: 'login',

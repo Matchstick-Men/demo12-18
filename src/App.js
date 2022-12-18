@@ -1,6 +1,5 @@
-import { useRoutes } from 'react-router-dom';
 import './App.css';
-import routesMap from './pages/router';
+import routesMap from './router';
 
 function App() {
   return (

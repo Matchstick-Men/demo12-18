@@ -64,7 +64,7 @@ export const Registered = () => {
     };
     //跳转到登录页面
     const login = () => {
-        navigate('/')
+        navigate('/login')
     }
     return (
         <div className='Registered'>
@@ -130,7 +130,7 @@ export const Registered = () => {
                             注册
                         </Button>
                         <br />
-                        <Link to='/'>登录</Link>
+                        <Link to='/login'>登录</Link>
                     </Form.Item>
                 </Form>
             </div>
