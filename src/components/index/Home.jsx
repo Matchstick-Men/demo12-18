@@ -1,11 +1,10 @@
 import axios from 'axios'
 import React, { useState, useEffect } from 'react'
-import { Space, Table, Modal, Form, Input, Button } from 'antd';
+import { Space, Table, Modal, Form, Input, Button, Upload } from 'antd';
+import * as XLSX from 'xlsx';
 export const Home = () => {
     const [data, setData] = useState()
-
     const uname = JSON.parse(localStorage.getItem("name"))
-    console.log(uname);
     //获取数据
     const getdata = () => {
         axios.get("http://localhost:8080/goods").then(res => {
@@ -14,7 +13,6 @@ export const Home = () => {
     }
     useEffect(() => {
         getdata()
-
     }, [])
     //修改列表
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -33,12 +31,12 @@ export const Home = () => {
 
     // 模态框内表格
     const onFinish = (values) => {
-        console.log('Success:', values);
-        console.log(listdata);
-        axios.patch("http://localhost:8080/goods/" + listdata.id, { SY: values.SY, name: values.name, price: values.price, merchants: values.merchants, category: values.category }).then(res => {
-            console.log(res);
-            getdata()
-        })
+        // console.log('Success:', values);
+        axios.patch("http://localhost:8080/goods/" + listdata.id, { SY: values.SY, name: values.name, price: values.price, merchants: values.merchants, category: values.category })
+            .then(res => {
+                console.log(res);
+                getdata()
+            })
         setIsModalOpen(false);
     };
     const onFinishFailed = (errorInfo) => {
@@ -47,9 +45,7 @@ export const Home = () => {
     };
     //添加数据
     const onAddFinish = (values) => {
-        console.log("add", values);
         axios.post("http://localhost:8080/goods", { SY: values.SY, name: values.name, price: values.price, merchants: values.merchants, category: values.category }).then(res => {
-            console.log(res);
             getdata()
         })
         setAddisModalOpen(false);
@@ -59,7 +55,6 @@ export const Home = () => {
     const [addlistdata, setAddlistdata] = useState({})
     const showModalAdd = (record) => {
         setAddisModalOpen(true);
-        console.log(11);
         setAddlistdata(record);
     };
     const handleaddOk = () => {
@@ -69,18 +64,14 @@ export const Home = () => {
     const handleaddCancel = () => {
         setAddisModalOpen(false);
     };
-
-
-
     //删除列表
     const deletelist = (record) => {
-        console.log(record);
-        axios.delete("http://localhost:8080/goods/" + listdata.id).then(res => {
+        // console.log(record);
+        axios.delete("http://localhost:8080/goods/" + record.id).then(res => {
             getdata()
         })
     }
     //表格设置
-
     const columns = [
         {
             title: 'id',
@@ -104,13 +95,13 @@ export const Home = () => {
         },
         {
             title: '商家',
-            key: 'merchants',
+            key: 'id',
             dataIndex: 'merchants',
         },
         {
             title: '类别',
             dataIndex: 'category',
-            key: 'category',
+            key: 'id',
         },
         uname.role !== "user" ?
             {
@@ -127,7 +118,40 @@ export const Home = () => {
     ];
 
     //表格设置结束
+    //上传excel表格
 
+    const uploadProps = {
+        accept: '.xls,.xlsx,application/vnd.ms-excel',
+        beforeUpload: (file) => {
+            const f = file;
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                const datas = e.target.result;
+                const workbook = XLSX.read(datas, {
+                    type: 'binary',
+                });
+                const first_worksheet = workbook.Sheets[workbook.SheetNames[0]];
+                const jsonArr = XLSX.utils.sheet_to_json(first_worksheet, { header: 1 });
+                handleImpotedJson(jsonArr, file);
+            };
+            reader.readAsBinaryString(f);
+            return false;
+        },
+        onRemove: () => {
+
+        },
+    };
+
+    const handleImpotedJson = (jsonArr,) => {
+        //jsonArr返回的是你上传的excel表格的每一行的数据 是数组形式
+        jsonArr.splice(0, 1); // 去掉表头
+        jsonArr.map((item) => {
+            //在这写你需要的处理逻辑
+            axios.post("http://localhost:8080/goods", { SY: item[0], name: item[1], price: item[2], merchants: item[3], category: item[4] }).then(res => {
+                getdata()
+            })
+        });
+    };
 
     return (
         <div className='home'>首页
@@ -326,9 +350,10 @@ export const Home = () => {
                     </Form>
 
                 </Modal>
+                <Upload {...uploadProps}>
+                    <Button type="primary">导入Excel</Button>
+                </Upload>
             </div>
-
-
                 : ''}
 
         </div>

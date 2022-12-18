@@ -1,13 +1,11 @@
 import { useRoutes } from 'react-router-dom';
 import './App.css';
-import routers from './pages/router';
+import routesMap from './pages/router';
 
 function App() {
-  const elements = useRoutes(routers)
   return (
     <div className="App">
-      {elements}
-
+      {routesMap}
     </div>
   );
 }

@@ -18,14 +18,13 @@ export const Login = () => {
                 }
             }
             if (!username) {
-                console.log('不存在该用户名');
+                alert('不存在该用户名');
             } else if (username.password === values.password) {
-                console.log('登录成功');
-                console.log(username);
+                // console.log('登录成功');
                 localStorage.setItem('name', JSON.stringify(username))
                 navigate('/home')
             } else {
-                console.log('密码错误');
+                alert('密码错误');
             }
         })
     };
